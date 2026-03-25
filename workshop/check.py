@@ -3,13 +3,13 @@ import pandas as pd
 
 def verify_drop_notes(df):
     """
-    Verify that the 'notes' column has been dropped.
+    Verifica se a coluna 'notes' foi removida.
     """
     return 'notes' not in df.columns
 
 def verify_high_ratings(df):
     """
-    Verify that all ratings are 90 or higher.
+    Verifica se todos os ratings são 90 ou maiores.
     """
     if 'rating' in df.columns:
         return df['rating'].min() >= 90
@@ -17,13 +17,13 @@ def verify_high_ratings(df):
 
 def verify_one_hot_encoding(df):
     """
-    Verify that the 'Red_Wine' column has been one-hot encoded.
+    Verifica se a coluna 'Red_Wine' recebeu one-hot encoding.
     """
     return 'Red_Wine' in df.columns and df['Red_Wine'].isin([0, 1]).all()
 
 def verify_remove_newlines_carriage_returns(df):
     """
-    Verify that there are no newlines or carriage returns in string columns.
+    Verifica se não há newlines ou caracteres de retorno nas colunas de texto.
     """
     for col in df.select_dtypes(include=['object']).columns:
         if df[col].str.contains('\n').any() or df[col].str.contains('\r').any():
@@ -32,21 +32,21 @@ def verify_remove_newlines_carriage_returns(df):
 
 def verify_ratings_to_int(df):
     """
-    Verify that the 'rating' column has been converted to integers.
+    Verifica se a coluna 'rating' foi convertida para integer.
     """
     if 'rating' in df.columns:
         return pd.api.types.is_integer_dtype(df['rating'])
     return False
 
-# Example usage
+# Exemplo de uso
 if __name__ == "__main__":
     df = pd.read_csv('transformed_train.csv')
     functions = [
-        [verify_drop_notes, "The 'notes' column was not dropped correctly."],
-        [verify_high_ratings, "Not all ratings are 90 or higher."],
-        [verify_one_hot_encoding, "The 'Red Wine' column was not one-hot encoded correctly."],
-        [verify_remove_newlines_carriage_returns, "Newlines or carriage returns were not removed correctly."],
-        [verify_ratings_to_int, "The 'ratings' column was not converted to integers correctly."]
+        [verify_drop_notes, "A coluna 'notes' não foi removida corretamente."],
+        [verify_high_ratings, "Nem todos os ratings são 90 ou maiores."],
+        [verify_one_hot_encoding, "A coluna 'Red_Wine' não recebeu one-hot encoding corretamente."],
+        [verify_remove_newlines_carriage_returns, "Newlines ou caracteres de retorno não foram removidos corretamente."],
+        [verify_ratings_to_int, "A coluna 'rating' não foi convertida para integer corretamente."]
     ]
      
     for func, message in functions:
