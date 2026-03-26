@@ -581,6 +581,11 @@ Este workflow irá:
 
 </details>
 
+### Desafio Bônus - Trabalhando com consultas SQL
+- Acesse o arquivo  `sql_samples.py` no diretório `workshop`.
+- Usando o Copilot Chat, peça para o GitHub Copilot ajudar a construir cada consulta SQL conforme está sendo sugerido.
+- No seu terminal execute o arquivo `python3 sql_samples.py` para garantir que as consultas estão corretas e retornando os resultados esperados.
+
 ## Limpeza
 
 ### 1. Exclua seu Codespace
