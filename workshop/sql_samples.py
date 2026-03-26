@@ -12,7 +12,9 @@ def run_sql_examples(df: pd.DataFrame) -> None:
 
         select_top_10_wines_by_rating(conn)
 
-        
+        select_wines_with_high_rating_and_red_wine(conn)
+
+        select_average_rating_by_region(conn)
 
 
     finally:
@@ -41,6 +43,7 @@ def select_wines_with_high_rating_and_red_wine(conn: sqlite3.Connection) -> None
     """
     Monte uma consulta SQL que traga os vinhos com rating 95 ou maior e que sejam Red Wine, mostrando as colunas name, region, rating e Red_Wine.
         - Ordene por rating desc e name asc.
+        - Carregue os primeiros 20 registros do resultado.
     """
         
     query_high_rating_red_wine = """
@@ -58,6 +61,7 @@ def select_average_rating_by_region(conn: sqlite3.Connection) -> None:
     """
     Monte uma consulta SQL que traga a média de rating por região, mostrando as colunas region e average_rating.
         - Ordene por average_rating desc e region asc.
+        - Carregue os primeiros 20 registros do resultado.
     """
         
     query_average_rating_by_region = """
